@@ -3,70 +3,74 @@
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Fei Fei — Home</title>
-  <meta name="description" content="Personal homepage of Fei Fei. Welcome to my portfolio and blog.">
+  <title>Felix Chen — Home</title>
+  <meta name="description" content="Home of Felix Chen — 12-year-old student who loves basketball and AI programming.">
   <style>
-    :root{--bg:#f7f8fb;--card:#ffffff;--accent:#2563eb;--muted:#6b7280}
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial; margin:0; background:var(--bg); color:#111}
+    :root{--bg:#f7f8fb;--card:#fff;--accent:#1f6feb;--muted:#6b7280}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial; margin:0; background:var(--bg); color:#0f172a}
     .container{max-width:900px;margin:48px auto;padding:24px}
     header{display:flex;gap:16px;align-items:center}
-    .avatar{width:96px;height:96px;border-radius:12px;background:linear-gradient(135deg,#e0e7ff,#f0fdf4);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent)}
-    h1{margin:0;font-size:1.6rem}
+    .avatar{width:100px;height:100px;border-radius:14px;background:linear-gradient(135deg,#e6f0ff,#f8fff4);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent);font-size:1.4rem}
+    h1{margin:0;font-size:1.8rem}
     p.lead{margin:6px 0 0;color:var(--muted)}
-    nav{margin-top:18px}
+    nav{margin-top:12px}
     nav a{margin-right:12px;color:var(--accent);text-decoration:none;font-weight:600}
     .card{background:var(--card);border-radius:12px;padding:18px;margin-top:20px;box-shadow:0 6px 18px rgba(16,24,40,0.06)}
     section{margin-top:18px}
-    ul.projects{padding-left:1.1rem}
+    ul.projects{padding-left:1.1rem;margin:0}
+    ul.projects li{margin:6px 0}
+    .tags{color:var(--muted);font-size:0.95rem}
     footer{margin-top:36px;color:var(--muted);font-size:0.9rem}
+    .actions a{display:inline-block;margin-right:10px;padding:8px 12px;border-radius:8px;background:var(--accent);color:white;text-decoration:none;font-weight:600}
     @media (max-width:560px){.container{margin:24px 16px;padding:16px}.avatar{width:72px;height:72px}}
   </style>
 </head>
 <body>
   <main class="container">
     <header>
-      <div class="avatar">FF</div>
+      <div class="avatar" aria-hidden="true">FC</div>
       <div>
-        <h1>Fei Fei</h1>
-        <p class="lead">Software developer • Open-source enthusiast • Lifelong learner</p>
+        <h1>Felix Chen</h1>
+        <p class="lead">12-year-old middle school student — I enjoy basketball and building AI projects.</p>
         <nav>
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
-          <a href="#blog">Blog</a>
+          <a href="/blog">Blog</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
     </header>
 
     <section id="about" class="card">
-      <h2>About</h2>
-      <p>Hello — I'm Fei Fei. I build web applications and enjoy working on open-source projects. I focus on writing clean, maintainable code and learning new tools and frameworks. This site is a simple hub for my projects, blog posts, and ways to get in touch.</p>
+      <h2>About Me</h2>
+      <p>Hi — I'm Felix, a 12-year-old student who loves learning and creating. I play basketball in my free time and I enjoy programming, especially projects that use AI. I like solving problems, learning by building small projects, and sharing what I learn with others.</p>
+      <p class="tags">Interests: Basketball · AI programming · Learning new tools</p>
     </section>
 
     <section id="projects" class="card">
-      <h2>Projects</h2>
-      <p>Selected work:</p>
+      <h2>Featured Links</h2>
+      <p>Quick links to my work and writing:</p>
       <ul class="projects">
-        <li><strong>Project A</strong> — Short description or link to the repository.</li>
-        <li><strong>Project B</strong> — Short description or link to the repository.</li>
-        <li><strong>Project C</strong> — Short description or link to the repository.</li>
+        <li><a href="/my-project/">My Projects</a> — A collection of small apps, experiments, and demos I build while learning.</li>
+        <li><a href="/blog">Blog</a> — Short posts about what I learned, project updates, and experiments with AI.</li>
+        <li><a href="https://github.com/feifeifei85">GitHub</a> — My code repositories and contributions.</li>
       </ul>
-      <p>If you want to showcase repos, replace these items with links to your GitHub projects.</p>
     </section>
 
     <section id="blog" class="card">
-      <h2>Blog</h2>
-      <p>I occasionally write about coding, learning, and project updates. Add your posts in a /blog/ directory or link an external blog here.</p>
+      <h2>Writing</h2>
+      <p>I write short notes about projects, tutorials I follow, and experiments with AI models. Visit the <a href="/blog">blog</a> to read my latest posts.</p>
     </section>
 
     <section id="contact" class="card">
       <h2>Contact</h2>
-      <p>Say hi: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
-      <p>Find me on GitHub: <a href="https://github.com/feifeifei85">github.com/feifeifei85</a></p>
+      <p>If you'd like to see my code or say hello, check my GitHub profile:</p>
+      <p><a href="https://github.com/feifeifei85">github.com/feifeifei85</a></p>
+      <p>Optional: you can also add a contact email or social link to this page if you want people to reach you directly.</p>
     </section>
 
     <footer>
-      <p>Built with ♥ · Simple personal homepage — edit this file (index.html) to customize.</p>
+      <p>Built by Felix Chen — a middle school student exploring basketball and AI. This site is a simple hub for my projects and blog. To publish this site, enable GitHub Pages for this repository.</p>
     </footer>
   </main>
 </body>
