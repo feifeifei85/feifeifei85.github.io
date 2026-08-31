@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Fei Fei — Home</title>
+  <meta name="description" content="Personal homepage of Fei Fei. Welcome to my portfolio and blog.">
+  <style>
+    :root{--bg:#f7f8fb;--card:#ffffff;--accent:#2563eb;--muted:#6b7280}
+    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial; margin:0; background:var(--bg); color:#111}
+    .container{max-width:900px;margin:48px auto;padding:24px}
+    header{display:flex;gap:16px;align-items:center}
+    .avatar{width:96px;height:96px;border-radius:12px;background:linear-gradient(135deg,#e0e7ff,#f0fdf4);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent)}
+    h1{margin:0;font-size:1.6rem}
+    p.lead{margin:6px 0 0;color:var(--muted)}
+    nav{margin-top:18px}
+    nav a{margin-right:12px;color:var(--accent);text-decoration:none;font-weight:600}
+    .card{background:var(--card);border-radius:12px;padding:18px;margin-top:20px;box-shadow:0 6px 18px rgba(16,24,40,0.06)}
+    section{margin-top:18px}
+    ul.projects{padding-left:1.1rem}
+    footer{margin-top:36px;color:var(--muted);font-size:0.9rem}
+    @media (max-width:560px){.container{margin:24px 16px;padding:16px}.avatar{width:72px;height:72px}}
+  </style>
+</head>
+<body>
+  <main class="container">
+    <header>
+      <div class="avatar">FF</div>
+      <div>
+        <h1>Fei Fei</h1>
+        <p class="lead">Software developer • Open-source enthusiast • Lifelong learner</p>
+        <nav>
+          <a href="#about">About</a>
+          <a href="#projects">Projects</a>
+          <a href="#blog">Blog</a>
+          <a href="#contact">Contact</a>
+        </nav>
+      </div>
+    </header>
+
+    <section id="about" class="card">
+      <h2>About</h2>
+      <p>Hello — I'm Fei Fei. I build web applications and enjoy working on open-source projects. I focus on writing clean, maintainable code and learning new tools and frameworks. This site is a simple hub for my projects, blog posts, and ways to get in touch.</p>
+    </section>
+
+    <section id="projects" class="card">
+      <h2>Projects</h2>
+      <p>Selected work:</p>
+      <ul class="projects">
+        <li><strong>Project A</strong> — Short description or link to the repository.</li>
+        <li><strong>Project B</strong> — Short description or link to the repository.</li>
+        <li><strong>Project C</strong> — Short description or link to the repository.</li>
+      </ul>
+      <p>If you want to showcase repos, replace these items with links to your GitHub projects.</p>
+    </section>
+
+    <section id="blog" class="card">
+      <h2>Blog</h2>
+      <p>I occasionally write about coding, learning, and project updates. Add your posts in a /blog/ directory or link an external blog here.</p>
+    </section>
+
+    <section id="contact" class="card">
+      <h2>Contact</h2>
+      <p>Say hi: <a href="mailto:youremail@example.com">youremail@example.com</a></p>
+      <p>Find me on GitHub: <a href="https://github.com/feifeifei85">github.com/feifeifei85</a></p>
+    </section>
+
+    <footer>
+      <p>Built with ♥ · Simple personal homepage — edit this file (index.html) to customize.</p>
+    </footer>
+  </main>
+</body>
+</html>
