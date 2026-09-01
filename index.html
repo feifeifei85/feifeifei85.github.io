@@ -23,21 +23,27 @@
     footer{margin-top:36px;color:var(--muted);font-size:0.9rem}
     .actions a{display:inline-block;margin-right:10px;padding:8px 12px;border-radius:8px;background:var(--accent);color:white;text-decoration:none;font-weight:600}
 
-    /* project card layout */
-    .project-card{display:flex;gap:16px;align-items:flex-start;padding:12px}
-    /* constrain image size so it doesn't exceed content height; responsive */
-    .project-card img{width:180px;max-width:35%;height:auto;max-height:160px;border-radius:8px;display:block;object-fit:cover}
-    .project-content{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
+    /* project card: use CSS Grid so image height follows content height */
+    .project-card{
+      display:grid;
+      grid-template-columns:minmax(140px,35%) 1fr;
+      gap:16px;
+      align-items:stretch;
+      padding:12px;
+    }
+    .project-card > a{display:block; height:100%;}
+    .project-card img{width:100%;height:100%;object-fit:cover;border-radius:8px;display:block;max-height:360px}
+
+    .project-content{display:flex;flex-direction:column;justify-content:center;min-width:0}
     .project-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px}
     .project-title{margin:0;font-size:1rem}
-
-    /* badge styling (inline in header, no absolute positioning) */
     .project-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(31,111,235,0.08);color:var(--accent);padding:6px 10px;border-radius:999px;font-size:0.85rem;font-weight:600;white-space:nowrap}
     .project-badge svg{width:14px;height:14px;flex:0 0 14px}
 
     @media (max-width:760px){
-      .project-card{flex-direction:column}
-      .project-card img{width:100%;max-width:100%;max-height:none}
+      .project-card{grid-template-columns:1fr}
+      .project-card > a{height:auto}
+      .project-card img{height:auto;max-height:none}
       .project-header{flex-direction:row;align-items:center}
     }
     @media (max-width:560px){.container{margin:24px 16px;padding:16px}.avatar{width:72px;height:72px}}
