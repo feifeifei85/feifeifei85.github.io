@@ -22,6 +22,9 @@
     .tags{color:var(--muted);font-size:0.95rem}
     footer{margin-top:36px;color:var(--muted);font-size:0.9rem}
     .actions a{display:inline-block;margin-right:10px;padding:8px 12px;border-radius:8px;background:var(--accent);color:white;text-decoration:none;font-weight:600}
+    .project-card{display:flex;gap:16px;align-items:flex-start}
+    .project-card img{max-width:220px;border-radius:8px;display:block}
+    @media (max-width:760px){.project-card{flex-direction:column}.project-card img{max-width:100%}}
     @media (max-width:560px){.container{margin:24px 16px;padding:16px}.avatar{width:72px;height:72px}}
   </style>
 </head>
@@ -31,10 +34,11 @@
       <div class="avatar" aria-hidden="true">FC</div>
       <div>
         <h1>Felix Chen</h1>
-        <p class="lead">12-year-old middle school student — I like basketball and building AI projects.</p>
+        <p class="lead">12-year-old middle school student — I enjoy basketball and building AI projects.</p>
         <nav>
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
+          <a href="/blog">Blog</a>
           <a href="#contact">Contact</a>
         </nav>
       </div>
@@ -47,11 +51,25 @@
     </section>
 
     <section id="projects" class="card">
-      <h2>Featured Links</h2>
-      <p>Quick links to my work and writing:</p>
-      <ul class="projects">
-        <li><a href="/my-project/">My Projects</a> — A collection of small apps, experiments, and demos I build while learning.</li>
-      </ul>
+      <h2>Featured Project — Youth Basketball Shooting Guide</h2>
+      <div class="project-card">
+        <a href="https://feifeifei85.github.io/youth-basketball-shooting-guide/" title="Open the Youth Basketball Shooting Guide" aria-label="Open the Youth Basketball Shooting Guide">
+          <img src="https://raw.githubusercontent.com/feifeifei85/youth-basketball-shooting-guide/main/assets/cover-illustration.png" alt="Cover illustration — Youth Basketball Shooting Guide">
+        </a>
+        <div>
+          <p><strong>Youth Basketball Shooting Guide</strong> — an illustrated, step-by-step guide focused on shooting technique, practice routines, and age‑appropriate tips for young players.</p>
+          <p>This guide covers fundamentals, observation drills, practice progressions, and tips to build consistency. It was created as a friendly resource for middle‑school players learning to shoot better.</p>
+          <p>
+            <a class="actions" href="/my-project/">Open project page</a>
+            <a class="actions" href="https://feifeifei85.github.io/youth-basketball-shooting-guide/">Open full guide</a>
+          </p>
+        </div>
+      </div>
+    </section>
+
+    <section id="blog" class="card">
+      <h2>Writing</h2>
+      <p>I write short notes about projects, tutorials I follow, and experiments with AI models. Visit the <a href="/blog">blog</a> to read my latest posts.</p>
     </section>
 
     <section id="contact" class="card">
@@ -59,6 +77,10 @@
       <p>If you'd like to see my code or say hello, check my GitHub profile:</p>
       <p><a href="https://github.com/feifeifei85">github.com/feifeifei85</a></p>
     </section>
+
+    <footer>
+      <p>Built by Felix Chen — a middle school student exploring basketball and AI. This site is a simple hub for my projects and blog. To publish this site, enable GitHub Pages for this repository.</p>
+    </footer>
   </main>
 </body>
 </html>
