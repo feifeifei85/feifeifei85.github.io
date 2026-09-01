@@ -22,7 +22,7 @@
     /* actions button smaller */
     .actions a{display:inline-block;margin-right:8px;padding:6px 10px;border-radius:8px;background:var(--accent);color:white;text-decoration:none;font-weight:600;font-size:0.9rem}
 
-    /* compact project card: CSS Grid so image height follows content height; tightened spacing */
+    /* compact project card: let the text define the row height and contain the artwork */
     .project-card{
       display:grid;
       grid-template-columns:minmax(140px,32%) 1fr;
@@ -30,8 +30,8 @@
       align-items:stretch;
       padding:8px 6px;
     }
-    .project-card > a{display:block;height:100%}
-    .project-card img{width:100%;height:100%;object-fit:cover;border-radius:8px;display:block}
+    .project-card > a{position:relative;display:block;min-height:0;overflow:hidden}
+    .project-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;border-radius:8px;display:block}
 
     .project-content{display:flex;flex-direction:column;justify-content:flex-start;min-width:0}
     .project-header{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
@@ -45,8 +45,8 @@
 
     @media (max-width:760px){
       .project-card{grid-template-columns:1fr}
-      .project-card > a{height:auto}
-      .project-card img{height:auto}
+      .project-card > a{position:static;height:auto}
+      .project-card img{position:static;height:auto}
       .project-header{flex-direction:row;align-items:center}
     }
     @media (max-width:560px){.container{margin:20px 12px;padding:12px}.avatar{width:72px;height:72px}}
@@ -78,7 +78,7 @@
 
       <div class="project-card">
         <a href="https://feifeifei85.github.io/youth-basketball-shooting-guide/" title="Open the Youth Basketball Shooting Guide" aria-label="Open the Youth Basketball Shooting Guide">
-          <img src="https://raw.githubusercontent.com/feifeifei85/youth-basketball-shooting-guide/main/assets/cover-illustration.png" alt="Cover illustration — Youth Basketball Shooting Guide">
+          <img src="https://raw.githubusercontent.com/feifeifei85/youth-basketball-shooting-guide/main/assets/cover.png" alt="Cover illustration — Youth Basketball Shooting Guide">
         </a>
         <div class="project-content">
           <div class="project-header">
