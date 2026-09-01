@@ -23,16 +23,21 @@
     footer{margin-top:36px;color:var(--muted);font-size:0.9rem}
     .actions a{display:inline-block;margin-right:10px;padding:8px 12px;border-radius:8px;background:var(--accent);color:white;text-decoration:none;font-weight:600}
 
-    /* project card and badge */
-    .project-card{display:flex;gap:16px;align-items:flex-start;position:relative;padding:12px}
-    .project-card img{max-width:220px;width:100%;height:auto;max-height:240px;border-radius:8px;display:block;object-fit:cover}
-    .project-badge{position:absolute;top:12px;right:12px;display:inline-flex;align-items:center;gap:8px;background:rgba(31,111,235,0.08);color:var(--accent);padding:6px 10px;border-radius:999px;font-size:0.85rem;font-weight:600}
+    /* project card layout */
+    .project-card{display:flex;gap:16px;align-items:flex-start;padding:12px}
+    .project-card img{max-width:220px;width:100%;height:auto;border-radius:8px;display:block;object-fit:cover}
+    .project-content{flex:1;min-width:0}
+    .project-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px}
+    .project-title{margin:0;font-size:1rem}
+
+    /* badge styling (inline in header, no absolute positioning) */
+    .project-badge{display:inline-flex;align-items:center;gap:8px;background:rgba(31,111,235,0.08);color:var(--accent);padding:6px 10px;border-radius:999px;font-size:0.85rem;font-weight:600;white-space:nowrap}
     .project-badge svg{width:14px;height:14px;flex:0 0 14px}
 
     @media (max-width:760px){
       .project-card{flex-direction:column}
       .project-card img{max-width:100%;max-height:none}
-      .project-badge{position:static;margin-bottom:8px}
+      .project-header{flex-direction:row;align-items:center}
     }
     @media (max-width:560px){.container{margin:24px 16px;padding:16px}.avatar{width:72px;height:72px}}
   </style>
@@ -62,23 +67,24 @@
       <h2>Projects</h2>
 
       <div class="project-card">
-        <div class="project-badge" data-project="youth-basketball-shooting-guide" aria-hidden="false">
-          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-            <circle cx="12" cy="12" r="9"></circle>
-            <path d="M12 7v5l3 2"></path>
-          </svg>
-          <time datetime="">加载中…</time>
-        </div>
-
         <a href="https://feifeifei85.github.io/youth-basketball-shooting-guide/" title="Open the Youth Basketball Shooting Guide" aria-label="Open the Youth Basketball Shooting Guide">
           <img src="https://raw.githubusercontent.com/feifeifei85/youth-basketball-shooting-guide/main/assets/cover-illustration.png" alt="Cover illustration — Youth Basketball Shooting Guide">
         </a>
-        <div>
-          <p><strong>Youth Basketball Shooting Guide</strong> — an illustrated, step-by-step guide focused on shooting technique, practice routines, and age‑appropriate tips for young players.</p>
+        <div class="project-content">
+          <div class="project-header">
+            <h3 class="project-title">Youth Basketball Shooting Guide</h3>
+            <div class="project-badge" data-project="youth-basketball-shooting-guide">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
+                <circle cx="12" cy="12" r="9"></circle>
+                <path d="M12 7v5l3 2"></path>
+              </svg>
+              <time datetime="">加载中…</time>
+            </div>
+          </div>
+
+          <p>An illustrated, step-by-step guide focused on shooting technique, practice routines, and age‑appropriate tips for young players.</p>
           <p>This guide covers fundamentals, observation drills, practice progressions, and tips to build consistency. It was created as a friendly resource for middle‑school players learning to shoot better.</p>
-          <p>
-            <a class="actions" href="https://feifeifei85.github.io/youth-basketball-shooting-guide/">Open full guide</a>
-          </p>
+          <p><a class="actions" href="https://feifeifei85.github.io/youth-basketball-shooting-guide/">Open full guide</a></p>
         </div>
       </div>
 
