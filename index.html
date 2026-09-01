@@ -25,8 +25,9 @@
 
     /* project card layout */
     .project-card{display:flex;gap:16px;align-items:flex-start;padding:12px}
-    .project-card img{max-width:220px;width:100%;height:auto;border-radius:8px;display:block;object-fit:cover}
-    .project-content{flex:1;min-width:0}
+    /* constrain image size so it doesn't exceed content height; responsive */
+    .project-card img{width:180px;max-width:35%;height:auto;max-height:160px;border-radius:8px;display:block;object-fit:cover}
+    .project-content{flex:1;min-width:0;display:flex;flex-direction:column;justify-content:center}
     .project-header{display:flex;align-items:center;justify-content:space-between;gap:12px;margin-bottom:6px}
     .project-title{margin:0;font-size:1rem}
 
@@ -36,7 +37,7 @@
 
     @media (max-width:760px){
       .project-card{flex-direction:column}
-      .project-card img{max-width:100%;max-height:none}
+      .project-card img{width:100%;max-width:100%;max-height:none}
       .project-header{flex-direction:row;align-items:center}
     }
     @media (max-width:560px){.container{margin:24px 16px;padding:16px}.avatar{width:72px;height:72px}}
