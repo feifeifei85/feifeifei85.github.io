@@ -1,64 +1,214 @@
 <!doctype html>
 <html lang="en">
+
 <head>
   <meta charset="utf-8">
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Felix Chen — Home</title>
-  <meta name="description" content="Home of Felix Chen — 12-year-old student who loves basketball and using AI to build things.">
+  <meta name="description" content="Home of Felix Chen">
+
   <style>
-    :root{--bg:#f7f8fb;--card:#fff;--accent:#1f6feb;--muted:#6b7280}
-    body{font-family:system-ui,-apple-system,Segoe UI,Roboto,'Helvetica Neue',Arial;margin:0;background:var(--bg);color:#0f172a}
-    .container{max-width:900px;margin:32px auto;padding:16px}
-    header{display:flex;gap:12px;align-items:center}
-    .avatar{width:88px;height:88px;border-radius:12px;background:linear-gradient(135deg,#e6f0ff,#f8fff4);display:flex;align-items:center;justify-content:center;font-weight:700;color:var(--accent)}
-    h1{margin:0;font-size:1.6rem}
-    p.lead{margin:4px 0 0;color:var(--muted);font-size:0.95rem}
-    nav{margin-top:10px}
-    nav a{margin-right:10px;color:var(--accent);text-decoration:none;font-weight:600}
-
-    .card{background:var(--card);border-radius:10px;padding:12px;margin-top:14px;box-shadow:0 6px 18px rgba(16,24,40,0.06)}
-    section{margin-top:14px}
-
-    /* actions button smaller */
-    .actions a{display:inline-block;margin-right:8px;padding:6px 10px;border-radius:8px;background:var(--accent);color:white;text-decoration:none;font-weight:600;font-size:0.9rem}
-
-    /* compact project card: let the text define the row height and contain the artwork */
-    .project-card{
-      display:grid;
-      grid-template-columns:minmax(140px,32%) 1fr;
-      gap:12px;
-      align-items:stretch;
-      padding:8px 6px;
+    :root {
+      --bg: #f7f8fb;
+      --card: #fff;
+      --accent: #1f6feb;
+      --muted: #6b7280;
+      --text: #0f172a;
     }
-    .project-card > a{position:relative;display:block;min-height:0;overflow:hidden}
-    .project-card img{position:absolute;inset:0;width:100%;height:100%;object-fit:contain;border-radius:8px;display:block}
 
-    .project-content{display:flex;flex-direction:column;justify-content:flex-start;min-width:0}
-    .project-header{display:flex;align-items:center;justify-content:space-between;gap:8px;margin-bottom:6px}
-    .project-title{margin:0;font-size:1rem;line-height:1.15}
-
-    /* compact paragraph spacing inside project content */
-    .project-content p{margin:4px 0;color:var(--muted);line-height:1.35;font-size:0.95rem}
-
-    .project-badge{display:inline-flex;align-items:center;gap:6px;background:rgba(31,111,235,0.08);color:var(--accent);padding:5px 8px;border-radius:999px;font-size:0.83rem;font-weight:600;white-space:nowrap}
-    .project-badge svg{width:12px;height:12px;flex:0 0 12px}
-
-    @media (max-width:760px){
-      .project-card{grid-template-columns:1fr}
-      .project-card > a{position:static;height:auto}
-      .project-card img{position:static;height:auto}
-      .project-header{flex-direction:row;align-items:center}
+    * {
+      box-sizing: border-box;
     }
-    @media (max-width:560px){.container{margin:20px 12px;padding:12px}.avatar{width:72px;height:72px}}
+
+    body {
+      margin: 0;
+      font-family: system-ui, -apple-system, Segoe UI, Roboto, Arial, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+    }
+
+    .container {
+      max-width: 900px;
+      margin: 32px auto;
+      padding: 16px;
+    }
+
+    header {
+      display: flex;
+      gap: 12px;
+      align-items: center;
+    }
+
+    .avatar {
+      width: 88px;
+      height: 88px;
+      border-radius: 12px;
+      background: linear-gradient(135deg, #e6f0ff, #f8fff4);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      color: var(--accent);
+      font-weight: 700;
+    }
+
+    h1,
+    h2,
+    h3,
+    p {
+      margin-top: 0;
+    }
+
+    h1 {
+      margin-bottom: 4px;
+      font-size: 1.6rem;
+    }
+
+    h2 {
+      margin-bottom: 10px;
+      font-size: 1.2rem;
+    }
+
+    .lead {
+      margin-bottom: 10px;
+      color: var(--muted);
+      font-size: .95rem;
+    }
+
+    nav a {
+      margin-right: 10px;
+      color: var(--accent);
+      text-decoration: none;
+      font-weight: 600;
+    }
+
+    .card {
+      margin-top: 14px;
+      padding: 12px;
+      background: var(--card);
+      border-radius: 10px;
+      box-shadow: 0 6px 18px rgba(16, 24, 40, .06);
+    }
+
+    .project {
+      display: grid;
+      grid-template-columns: 220px 1fr;
+      gap: 14px;
+      padding: 10px 4px;
+    }
+
+    .project+.project {
+      border-top: 1px solid #e5e7eb;
+    }
+
+    .project-image {
+      display: block;
+      width: 220px;
+      height: 135px;
+      border-radius: 8px;
+      overflow: hidden;
+    }
+
+    .project-image img {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+    }
+
+    .project-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      gap: 10px;
+      margin-bottom: 6px;
+    }
+
+    .project-title {
+      margin-bottom: 0;
+      font-size: 1rem;
+    }
+
+    .project-title a {
+      color: var(--text);
+      text-decoration: none;
+    }
+
+    .project-title a:hover {
+      color: var(--accent);
+    }
+
+    .project-content p {
+      margin-bottom: 8px;
+      color: var(--muted);
+      font-size: .9rem;
+      line-height: 1.4;
+    }
+
+    .project-badge {
+      display: inline-flex;
+      align-items: center;
+      gap: 5px;
+      padding: 4px 7px;
+      border-radius: 999px;
+      background: rgba(31, 111, 235, .08);
+      color: var(--accent);
+      font-size: .75rem;
+      font-weight: 600;
+      white-space: nowrap;
+    }
+
+    .project-badge svg {
+      width: 11px;
+      height: 11px;
+    }
+
+    .actions {
+      display: inline-block;
+      padding: 5px 9px;
+      border-radius: 7px;
+      background: var(--accent);
+      color: #fff;
+      text-decoration: none;
+      font-size: .85rem;
+      font-weight: 600;
+    }
+
+    @media (max-width: 600px) {
+      .container {
+        margin: 20px 12px;
+        padding: 12px;
+      }
+
+      .avatar {
+        width: 72px;
+        height: 72px;
+      }
+
+      .project {
+        grid-template-columns: 1fr;
+      }
+
+      .project-image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+      }
+
+      .project-header {
+        align-items: flex-start;
+      }
+    }
   </style>
 </head>
+
 <body>
+
   <main class="container">
+
     <header>
-      <div class="avatar" aria-hidden="true">FC</div>
+      <div class="avatar">FC</div>
+
       <div>
         <h1>Felix Chen</h1>
-        <p class="lead">12-year-old middle school student — I enjoy basketball and using AI to build things.</p>
         <nav>
           <a href="#about">About</a>
           <a href="#projects">Projects</a>
@@ -67,62 +217,100 @@
       </div>
     </header>
 
+
     <section id="about" class="card">
       <h2>About Me</h2>
-      <p>Hi — I'm Felix, a 12-year-old student who loves learning and creating. I play basketball in my free time and I enjoy programming, especially projects that use AI. I like solving problems, learning by building small projects, and sharing what I learn with others.</p>
-      <p class="tags">Interests: Basketball · Electronics & Crafting · AI programming · Learning new tools</p>
+      <p>I'm Felix, a middle school student who loves learning and creating. I play basketball in my free time and I
+        enjoy programming, especially projects that use AI. I like solving problems, learning by building small
+        projects, and sharing what I learn with others.</p>
+      <p>Interests: Basketball · Crafting & Electronic Engineering · AI programming · Learning new tools</p>
     </section>
+
 
     <section id="projects" class="card">
       <h2>Projects</h2>
 
-      <div class="project-card">
-        <a href="https://feifeifei85.github.io/youth-basketball-shooting-guide/" title="Open the Youth Basketball Shooting Guide" aria-label="Open the Youth Basketball Shooting Guide">
-          <img src="https://raw.githubusercontent.com/feifeifei85/youth-basketball-shooting-guide/main/assets/cover.png" alt="Cover illustration — Youth Basketball Shooting Guide">
+      <div class="project">
+
+        <a class="project-image" href="https://feifeifei85.github.io/youth-basketball-shooting-guide/" target="_blank"
+          rel="noopener noreferrer">
+          <img src="https://raw.githubusercontent.com/feifeifei85/youth-basketball-shooting-guide/main/assets/cover.png"
+            alt="Youth Basketball Shooting Guide">
         </a>
+
         <div class="project-content">
+
           <div class="project-header">
-            <h3 class="project-title"><a class="actions" href="https://github.com/feifeifei85/youth-basketball-shooting-guide" target="_blank">Youth Basketball Shooting Guide</a></h3>
-            <div class="project-badge" data-project="youth-basketball-shooting-guide">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true">
-                <circle cx="12" cy="12" r="9"></circle>
-                <path d="M12 7v5l3 2"></path>
+            <h3 class="project-title">
+              <a href="https://github.com/feifeifei85/youth-basketball-shooting-guide" target="_blank"
+                rel="noopener noreferrer">
+                Youth Basketball Shooting Guide
+              </a>
+            </h3>
+
+            <div class="project-badge" data-project="feifeifei85/youth-basketball-shooting-guide">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 2" />
               </svg>
-              <time datetime="">加载中…</time>
+              <time>Loading…</time>
             </div>
           </div>
 
-          <p>An illustrated, step-by-step guide focused on shooting technique, practice routines, and age‑appropriate tips for young players.</p>
-          <p>This guide covers fundamentals, observation drills, practice progressions, and tips to build consistency. It was created as a friendly resource for middle‑school players learning to shoot better.</p>
-          <p><a class="actions" href="https://feifeifei85.github.io/youth-basketball-shooting-guide" target="_blank">Open full guide</a></p>
+          <p>
+            An illustrated, step-by-step guide covering shooting technique, practice routines, observation drills, and
+            age-appropriate tips to help young players. It was shared as a friendly resource for middle‑school players
+            learning to shoot better by themselves.
+          </p>
+
+          <a class="actions" href="https://feifeifei85.github.io/youth-basketball-shooting-guide" target="_blank"
+            rel="noopener noreferrer">
+            Open full guide
+          </a>
+
         </div>
       </div>
 
     </section>
 
+
     <section id="contact" class="card">
       <h2>Contact</h2>
       <p>If you'd like to see my code or say hello, check my GitHub profile:</p>
-      <p><a href="https://github.com/feifeifei85">github.com/feifeifei85</a></p>
+      <p>
+        <a href="https://github.com/feifeifei85" target="_blank" rel="noopener noreferrer">
+          github.com/feifeifei85
+        </a>
+      </p>
     </section>
 
   </main>
 
+
   <script>
-  // Populate badges with today's date (simple, no external calls)
-  document.addEventListener('DOMContentLoaded', () => {
-    const badges = document.querySelectorAll('.project-badge');
-    if (!badges.length) return;
-    const opts = { year: 'numeric', month: 'short', day: 'numeric' };
-    const now = new Date();
-    const formatted = now.toLocaleDateString(undefined, opts);
-    const iso = now.toISOString().split('T')[0];
-    badges.forEach(b => {
-      const t = b.querySelector('time');
-      if (t) { t.textContent = formatted; t.dateTime = iso }
+    document.querySelectorAll('.project-badge').forEach(async badge => {
+      const time = badge.querySelector('time');
+      const repo = badge.dataset.project;
+
+      try {
+        const response = await fetch(`https://api.github.com/repos/${repo}`);
+        const data = await response.json();
+        const date = new Date(data.created_at);
+
+        time.textContent = `Created ${date.toLocaleDateString('en-US', {
+          year: 'numeric',
+          month: 'short',
+          day: 'numeric'
+        })}`;
+
+        time.dateTime = date.toISOString();
+      } catch {
+        time.textContent = 'Date unavailable';
+      }
     });
-  });
   </script>
 
 </body>
+
 </html>
