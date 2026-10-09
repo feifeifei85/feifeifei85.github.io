@@ -289,23 +289,61 @@
 
 
   <script>
+    const repoCache = new Map();
+
+    async function fetchProjectCreatedDate(repo) {
+      if (repoCache.has(repo)) {
+        return repoCache.get(repo);
+      }
+
+      const response = await fetch(`https://api.github.com/repos/${repo}`, {
+        headers: {
+          Accept: 'application/vnd.github+json',
+          'X-GitHub-Api-Version': '2022-11-28'
+        }
+      });
+
+      if (!response.ok) {
+        const errorText = await response.text();
+        throw new Error(`GitHub API request failed (${response.status}): ${errorText}`);
+      }
+
+      const data = await response.json();
+
+      if (!data.created_at) {
+        throw new Error(`Repository metadata missing created_at for ${repo}`);
+      }
+
+      const date = new Date(data.created_at);
+      if (Number.isNaN(date.getTime())) {
+        throw new Error(`Invalid created_at for ${repo}: ${data.created_at}`);
+      }
+
+      const formatted = `Created ${date.toLocaleDateString('en-US', {
+        year: 'numeric',
+        month: 'short',
+        day: 'numeric'
+      })}`;
+
+      const result = {
+        formatted,
+        iso: date.toISOString()
+      };
+
+      repoCache.set(repo, result);
+      return result;
+    }
+
     document.querySelectorAll('.project-badge').forEach(async badge => {
       const time = badge.querySelector('time');
       const repo = badge.dataset.project;
 
       try {
-        const response = await fetch(`https://api.github.com/repos/${repo}`);
-        const data = await response.json();
-        const date = new Date(data.created_at);
-
-        time.textContent = `Created ${date.toLocaleDateString('en-US', {
-          year: 'numeric',
-          month: 'short',
-          day: 'numeric'
-        })}`;
-
-        time.dateTime = date.toISOString();
-      } catch {
+        const { formatted, iso } = await fetchProjectCreatedDate(repo);
+        time.textContent = formatted;
+        time.dateTime = iso;
+      } catch (error) {
+        console.error(error);
         time.textContent = 'Date unavailable';
       }
     });
