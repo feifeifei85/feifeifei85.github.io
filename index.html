@@ -114,6 +114,20 @@
       object-fit: cover;
     }
 
+    .project-image--logo {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #f8fafc;
+      border: 1px solid #e5e7eb;
+    }
+
+    .project-image--logo img {
+      width: 112px;
+      height: 112px;
+      object-fit: contain;
+    }
+
     .project-header {
       display: flex;
       justify-content: space-between;
@@ -229,15 +243,57 @@
 
     <section id="about" class="card">
       <h2>About Me</h2>
-      <p>I'm Felix, a middle school student who loves learning and creating. I play basketball in my free time and I
-        enjoy programming, especially projects that use AI. I like solving problems, learning by building small
-        projects, and sharing what I learn with others.</p>
+      <p>I'm Felix, a middle school student who enjoys basketball, programming, and building with AI. I'm currently
+        creating <a href="https://github.com/feifeifei85/OpenHoopVision" target="_blank" rel="noopener noreferrer">OpenHoopVision</a>,
+        an open-source project that makes AI basketball video analysis and game data more accessible to young players,
+        coaches, and their families.</p>
       <p>Interests: Basketball · Crafting & Electronic Engineering · AI programming · Learning new tools</p>
     </section>
 
 
     <section id="projects" class="card">
       <h2>Projects</h2>
+
+      <div class="project">
+
+        <a class="project-image project-image--logo" href="https://github.com/feifeifei85/OpenHoopVision" target="_blank"
+          rel="noopener noreferrer">
+          <img src="https://raw.githubusercontent.com/feifeifei85/OpenHoopVision/main/assets/logo.png"
+            alt="OpenHoopVision logo" loading="lazy" decoding="async">
+        </a>
+
+        <div class="project-content">
+
+          <div class="project-header">
+            <h3 class="project-title">
+              <a href="https://github.com/feifeifei85/OpenHoopVision" target="_blank" rel="noopener noreferrer">
+                OpenHoopVision
+              </a>
+            </h3>
+
+            <div class="project-badge" data-project="feifeifei85/OpenHoopVision">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 2" />
+              </svg>
+              <time>Loading…</time>
+            </div>
+          </div>
+
+          <p>
+            Open-source AI video analysis for amateur and youth basketball. It tracks players, detects the ball and
+            court features, and exports annotated video with structured event data for future analysis and tools for
+            coaches, players, and their families.
+          </p>
+
+          <a class="actions" href="https://github.com/feifeifei85/OpenHoopVision#demo" target="_blank"
+            rel="noopener noreferrer">
+            View project and demos
+          </a>
+
+        </div>
+      </div>
 
       <div class="project">
 
