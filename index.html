@@ -14,6 +14,7 @@
       --accent: #1f6feb;
       --muted: #6b7280;
       --text: #0f172a;
+      --line: #e5e7eb;
     }
 
     * {
@@ -81,53 +82,53 @@
       font-weight: 600;
     }
 
+    nav a:hover,
+    .contact-link:hover {
+      text-decoration: underline;
+    }
+
     .card {
       margin-top: 14px;
-      padding: 12px;
+      padding: 16px;
       background: var(--card);
-      border-radius: 10px;
-      box-shadow: 0 6px 18px rgba(16, 24, 40, .06);
+      border: 1px solid rgba(229, 231, 235, .8);
+      border-radius: 12px;
+      box-shadow: 0 4px 14px rgba(16, 24, 40, .04);
     }
 
     #projects {
-      padding: 18px;
+      padding: 16px 18px;
     }
 
     #projects h2 {
-      margin-bottom: 14px;
+      margin-bottom: 4px;
     }
 
-    .project-grid {
-      display: grid;
-      grid-template-columns: repeat(2, minmax(0, 1fr));
-      gap: 16px;
+    .projects-intro {
+      margin-bottom: 4px;
+      color: var(--muted);
+      font-size: .9rem;
     }
 
     .project {
-      display: flex;
-      flex-direction: column;
-      min-width: 0;
-      padding: 10px;
-      background: #fff;
-      border: 1px solid #e5e7eb;
-      border-radius: 10px;
-      transition: border-color .2s ease, box-shadow .2s ease, transform .2s ease;
+      display: grid;
+      grid-template-columns: 160px minmax(0, 1fr);
+      gap: 16px;
+      align-items: center;
+      padding: 14px 0;
     }
 
-    .project:hover {
-      transform: translateY(-2px);
-      border-color: #cbd5e1;
-      box-shadow: 0 8px 20px rgba(16, 24, 40, .08);
+    .project + .project {
+      border-top: 1px solid var(--line);
     }
 
     .project-image {
       display: flex;
       align-items: center;
       justify-content: center;
-      width: 100%;
-      aspect-ratio: 16 / 9;
-      margin-bottom: 12px;
-      border-radius: 7px;
+      width: 160px;
+      height: 108px;
+      border-radius: 9px;
       overflow: hidden;
       background: #f1f5f9;
     }
@@ -140,34 +141,30 @@
 
     .project-image--logo {
       background: #f8fafc;
-      border: 1px solid #e5e7eb;
+      border: 1px solid var(--line);
     }
 
     .project-image--logo img {
-      width: 112px;
-      height: 112px;
+      width: 92px;
+      height: 92px;
       object-fit: contain;
     }
 
     .project-content {
-      display: flex;
-      flex: 1;
-      flex-direction: column;
-      align-items: flex-start;
+      min-width: 0;
     }
 
     .project-header {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
-      gap: 8px;
-      width: 100%;
-      margin-bottom: 8px;
+      justify-content: space-between;
+      align-items: center;
+      gap: 12px;
+      margin-bottom: 6px;
     }
 
     .project-title {
       margin-bottom: 0;
-      font-size: 1.05rem;
+      font-size: 1rem;
       line-height: 1.35;
     }
 
@@ -181,21 +178,22 @@
     }
 
     .project-content p {
-      margin-bottom: 14px;
+      margin-bottom: 8px;
       color: var(--muted);
       font-size: .9rem;
-      line-height: 1.5;
+      line-height: 1.45;
     }
 
     .project-badge {
       display: inline-flex;
+      flex: 0 0 auto;
       align-items: center;
       gap: 5px;
       padding: 4px 7px;
       border-radius: 999px;
-      background: rgba(31, 111, 235, .08);
-      color: var(--accent);
-      font-size: .75rem;
+      background: #f1f5f9;
+      color: var(--muted);
+      font-size: .72rem;
       font-weight: 600;
       white-space: nowrap;
     }
@@ -203,32 +201,39 @@
     .project-badge svg {
       width: 11px;
       height: 11px;
+      color: var(--accent);
     }
 
     .actions {
-      display: inline-block;
-      margin-top: auto;
-      padding: 6px 10px;
-      border-radius: 7px;
-      background: var(--accent);
-      color: #fff;
+      display: inline-flex;
+      align-items: center;
+      gap: 4px;
+      color: var(--accent);
       text-decoration: none;
       font-size: .85rem;
-      font-weight: 600;
-      transition: background-color .2s ease;
+      font-weight: 650;
     }
 
-    .actions:hover {
-      background: #1858c9;
+    .actions::after {
+      content: "→";
+      transition: transform .18s ease;
+    }
+
+    .actions:hover::after {
+      transform: translateX(3px);
     }
 
     .footer {
       padding-top: 8px;
-      margin-bottom: 20px;
+      margin-bottom: 4px;
     }
 
     .footer img {
       height: 20px;
+    }
+
+    .contact-link {
+      color: var(--accent);
     }
 
     @media (max-width: 600px) {
@@ -242,19 +247,57 @@
         height: 72px;
       }
 
-      .project-grid {
+      #projects {
+        padding: 14px;
+      }
+
+      .project {
+        grid-template-columns: 96px minmax(0, 1fr);
+        gap: 12px;
+        padding: 12px 0;
+      }
+
+      .project-image {
+        width: 96px;
+        height: 76px;
+      }
+
+      .project-image--logo img {
+        width: 64px;
+        height: 64px;
+      }
+
+      .project-header {
+        align-items: flex-start;
+        flex-direction: column;
+        gap: 5px;
+      }
+
+      .project-content p {
+        font-size: .85rem;
+      }
+    }
+
+    @media (max-width: 380px) {
+      .project {
         grid-template-columns: 1fr;
+      }
+
+      .project-image {
+        width: 100%;
+        height: auto;
+        aspect-ratio: 16 / 9;
+      }
+
+      .project-image--logo img {
+        width: 82px;
+        height: 82px;
       }
     }
 
     @media (prefers-reduced-motion: reduce) {
-      .project,
-      .actions {
+      .actions::after {
         transition: none;
-      }
-
-      .project:hover {
-        transform: none;
       }
     }
   </style>
@@ -289,155 +332,144 @@
 
     <section id="projects" class="card">
       <h2>Projects</h2>
+      <p class="projects-intro">A few things I've been building and learning from.</p>
 
-      <div class="project-grid">
-        <div class="project">
-          <a class="project-image project-image--logo" href="https://github.com/feifeifei85/OpenHoopVision-shooting" target="_blank"
-            rel="noopener noreferrer">
-            <img src="https://raw.githubusercontent.com/feifeifei85/OpenHoopVision-shooting/main/assets/logo.png"
-              alt="OpenHoopVision Shooting logo" loading="lazy" decoding="async">
-          </a>
+      <div class="project">
+        <a class="project-image project-image--logo" href="https://github.com/feifeifei85/OpenHoopVision-shooting" target="_blank"
+          rel="noopener noreferrer">
+          <img src="https://raw.githubusercontent.com/feifeifei85/OpenHoopVision-shooting/main/assets/logo.png"
+            alt="OpenHoopVision Shooting logo" loading="lazy" decoding="async">
+        </a>
 
-          <div class="project-content">
-            <div class="project-header">
-              <h3 class="project-title">
-                <a href="https://github.com/feifeifei85/OpenHoopVision-shooting" target="_blank" rel="noopener noreferrer">
-                  OpenHoopVision Shooting
-                </a>
-              </h3>
-
-              <div class="project-badge" data-project="feifeifei85/OpenHoopVision-shooting">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M12 7v5l3 2" />
-                </svg>
-                <time>Loading…</time>
-              </div>
+        <div class="project-content">
+          <div class="project-header">
+            <h3 class="project-title">
+              <a href="https://github.com/feifeifei85/OpenHoopVision-shooting" target="_blank" rel="noopener noreferrer">
+                OpenHoopVision Shooting
+              </a>
+            </h3>
+            <div class="project-badge" data-project="feifeifei85/OpenHoopVision-shooting">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 2" />
+              </svg>
+              <time>Loading…</time>
             </div>
-
-            <p>
-              An open-source basketball shot analysis project built on OpenHoopVision-core. It analyzes shot timing,
-              pose, and movement from video, then generates a synchronized review video and structured metrics.
-            </p>
-
-            <a class="actions" href="https://github.com/feifeifei85/OpenHoopVision-shooting#demo" target="_blank"
-              rel="noopener noreferrer">
-              View project and demos
-            </a>
           </div>
+          <p>
+            An open-source basketball shot analysis project built on OpenHoopVision-core. It analyzes shot timing,
+            pose, and movement from video, then generates a synchronized review video and structured metrics.
+          </p>
+          <a class="actions" href="https://github.com/feifeifei85/OpenHoopVision-shooting#demo" target="_blank"
+            rel="noopener noreferrer">
+            View project and demos
+          </a>
         </div>
+      </div>
 
-        <div class="project">
-          <a class="project-image project-image--logo" href="https://github.com/feifeifei85/OpenHoopVision-AI-Highlights" target="_blank"
-            rel="noopener noreferrer">
-            <img src="https://raw.githubusercontent.com/feifeifei85/OpenHoopVision-AI-Highlights/main/assets/logo.png" alt="AI Highlights logo" loading="lazy" decoding="async">
-          </a>
+      <div class="project">
+        <a class="project-image project-image--logo" href="https://github.com/feifeifei85/OpenHoopVision-AI-Highlights" target="_blank"
+          rel="noopener noreferrer">
+          <img src="https://raw.githubusercontent.com/feifeifei85/OpenHoopVision-AI-Highlights/main/assets/logo.png"
+            alt="AI Highlights logo" loading="lazy" decoding="async">
+        </a>
 
-          <div class="project-content">
-            <div class="project-header">
-              <h3 class="project-title">
-                <a href="https://github.com/feifeifei85/OpenHoopVision-AI-Highlights" target="_blank" rel="noopener noreferrer">
-                  AI Highlights
-                </a>
-              </h3>
-
-              <div class="project-badge" data-project="feifeifei85/OpenHoopVision-AI-Highlights">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M12 7v5l3 2" />
-                </svg>
-                <time>Loading…</time>
-              </div>
+        <div class="project-content">
+          <div class="project-header">
+            <h3 class="project-title">
+              <a href="https://github.com/feifeifei85/OpenHoopVision-AI-Highlights" target="_blank" rel="noopener noreferrer">
+                AI Highlights
+              </a>
+            </h3>
+            <div class="project-badge" data-project="feifeifei85/OpenHoopVision-AI-Highlights">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 2" />
+              </svg>
+              <time>Loading…</time>
             </div>
-
-            <p>
-              An open-source native iOS app derived from OpenHoopVision. It uses an on-device YOLO26n Core ML model to
-              find potential made baskets, lets users review candidates, and exports selected highlights as MP4.
-            </p>
-
-            <a class="actions" href="https://github.com/feifeifei85/OpenHoopVision-AI-Highlights" target="_blank" rel="noopener noreferrer">
-              View project and code
-            </a>
           </div>
+          <p>
+            An open-source native iOS app derived from OpenHoopVision. It uses an on-device YOLO26n Core ML model to
+            find potential made baskets, lets users review candidates, and exports selected highlights as MP4.
+          </p>
+          <a class="actions" href="https://github.com/feifeifei85/OpenHoopVision-AI-Highlights" target="_blank"
+            rel="noopener noreferrer">
+            View project and code
+          </a>
         </div>
+      </div>
 
-        <div class="project">
-          <a class="project-image project-image--logo" href="https://github.com/feifeifei85/OpenHoopVision" target="_blank"
-            rel="noopener noreferrer">
-            <img src="https://raw.githubusercontent.com/feifeifei85/OpenHoopVision/main/assets/logo.png"
-              alt="OpenHoopVision logo" loading="lazy" decoding="async">
-          </a>
+      <div class="project">
+        <a class="project-image project-image--logo" href="https://github.com/feifeifei85/OpenHoopVision" target="_blank"
+          rel="noopener noreferrer">
+          <img src="https://raw.githubusercontent.com/feifeifei85/OpenHoopVision/main/assets/logo.png"
+            alt="OpenHoopVision logo" loading="lazy" decoding="async">
+        </a>
 
-          <div class="project-content">
-            <div class="project-header">
-              <h3 class="project-title">
-                <a href="https://github.com/feifeifei85/OpenHoopVision" target="_blank" rel="noopener noreferrer">
-                  OpenHoopVision
-                </a>
-              </h3>
-
-              <div class="project-badge" data-project="feifeifei85/OpenHoopVision">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M12 7v5l3 2" />
-                </svg>
-                <time>Loading…</time>
-              </div>
+        <div class="project-content">
+          <div class="project-header">
+            <h3 class="project-title">
+              <a href="https://github.com/feifeifei85/OpenHoopVision" target="_blank" rel="noopener noreferrer">
+                OpenHoopVision
+              </a>
+            </h3>
+            <div class="project-badge" data-project="feifeifei85/OpenHoopVision">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 2" />
+              </svg>
+              <time>Loading…</time>
             </div>
-
-            <p>
-              Open-source AI video analysis for amateur and youth basketball. It tracks players, detects the ball and
-              court features, and exports annotated video with structured event data for future analysis and tools for
-              coaches, players, and their families.
-            </p>
-
-            <a class="actions" href="https://github.com/feifeifei85/OpenHoopVision#demo" target="_blank"
-              rel="noopener noreferrer">
-              View project and demos
-            </a>
           </div>
+          <p>
+            Open-source AI video analysis for amateur and youth basketball. It tracks players, detects the ball and
+            court features, and exports annotated video with structured event data for future analysis and tools for
+            coaches, players, and their families.
+          </p>
+          <a class="actions" href="https://github.com/feifeifei85/OpenHoopVision#demo" target="_blank"
+            rel="noopener noreferrer">
+            View project and demos
+          </a>
         </div>
+      </div>
 
-        <div class="project">
-          <a class="project-image" href="https://feifeifei85.github.io/youth-basketball-shooting-guide/" target="_blank"
-            rel="noopener noreferrer">
-            <img src="https://raw.githubusercontent.com/feifeifei85/youth-basketball-shooting-guide/main/assets/cover.png"
-              alt="Youth Basketball Shooting Guide" loading="lazy" decoding="async">
-          </a>
+      <div class="project">
+        <a class="project-image" href="https://feifeifei85.github.io/youth-basketball-shooting-guide/" target="_blank"
+          rel="noopener noreferrer">
+          <img src="https://raw.githubusercontent.com/feifeifei85/youth-basketball-shooting-guide/main/assets/cover.png"
+            alt="Youth Basketball Shooting Guide" loading="lazy" decoding="async">
+        </a>
 
-          <div class="project-content">
-            <div class="project-header">
-              <h3 class="project-title">
-                <a href="https://github.com/feifeifei85/youth-basketball-shooting-guide" target="_blank"
-                  rel="noopener noreferrer">
-                  Youth Basketball Shooting Guide
-                </a>
-              </h3>
-
-              <div class="project-badge" data-project="feifeifei85/youth-basketball-shooting-guide">
-                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
-                  stroke-linejoin="round">
-                  <circle cx="12" cy="12" r="9" />
-                  <path d="M12 7v5l3 2" />
-                </svg>
-                <time>Loading…</time>
-              </div>
+        <div class="project-content">
+          <div class="project-header">
+            <h3 class="project-title">
+              <a href="https://github.com/feifeifei85/youth-basketball-shooting-guide" target="_blank"
+                rel="noopener noreferrer">
+                Youth Basketball Shooting Guide
+              </a>
+            </h3>
+            <div class="project-badge" data-project="feifeifei85/youth-basketball-shooting-guide">
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                stroke-linejoin="round">
+                <circle cx="12" cy="12" r="9" />
+                <path d="M12 7v5l3 2" />
+              </svg>
+              <time>Loading…</time>
             </div>
-
-            <p>
-              An illustrated, step-by-step guide covering shooting technique, practice routines, observation drills, and
-              age-appropriate tips to help young players. It was shared as a friendly resource for middle‑school players
-              learning to shoot better by themselves.
-            </p>
-
-            <a class="actions" href="https://feifeifei85.github.io/youth-basketball-shooting-guide" target="_blank"
-              rel="noopener noreferrer">
-              Open full guide
-            </a>
           </div>
+          <p>
+            An illustrated, step-by-step guide covering shooting technique, practice routines, observation drills, and
+            age-appropriate tips to help young players. It was shared as a friendly resource for middle‑school players
+            learning to shoot better by themselves.
+          </p>
+          <a class="actions" href="https://feifeifei85.github.io/youth-basketball-shooting-guide" target="_blank"
+            rel="noopener noreferrer">
+            Open full guide
+          </a>
         </div>
       </div>
     </section>
@@ -447,7 +479,7 @@
       <h2>Contact</h2>
       <p>If you'd like to see my code or say hello, check my GitHub profile:</p>
       <p>
-        <a href="https://github.com/feifeifei85" target="_blank" rel="noopener noreferrer">
+        <a class="contact-link" href="https://github.com/feifeifei85" target="_blank" rel="noopener noreferrer">
           github.com/feifeifei85
         </a>
       </p>
